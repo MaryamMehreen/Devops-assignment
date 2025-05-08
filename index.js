@@ -1,12 +1,13 @@
 const express= require('express')
 const app = express()
-app.get('/', (req, res) => {
-    res.send('Dockerise image deployed on heroku');
+const PORT =process.env.PORT || 3001;
+app.get('/',(req,res)=>{
+    res.send('Dockerised image deployed on Render');
 });
 app.get('/hello', (req, res) => {
     res.send('Hello fromDockerise image deployed on heroku');
 });
-app.listen(3001, ()=>{
-    console.log("Backend server running on port 3001")
+app.listen(PORT, ()=>{
+    console.log('Backend server running on port $(PORT)');
     
-})
+});
